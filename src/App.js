@@ -5,12 +5,14 @@ import { Main } from "./Main";
 import About from "./About";
 import Footer from "./Footer";
 import PostPage from "./PostPage";
+import NewPost from "./NewPost";
+
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 
 function App() {
   
-  const [posts, newPosts] = useState([    
+  const [posts, setPosts] = useState([    
     {
       id: 1,
       title: "My First Post",
@@ -36,9 +38,18 @@ function App() {
       body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis consequatur expedita, assumenda similique non optio! Modi nesciunt excepturi corrupti atque blanditiis quo nobis, non optio quae possimus illum exercitationem ipsa!",
     },
   ]);
+
+  // From Post Page handles the delete function and sets news posts array after delete post.
+  const handleDelete = (id) => {
+    const postDelete = posts.filter((post)=>post.id !== id);
+    setPosts(postDelete);
+    
+  };
+
   useEffect(()=>
     localStorage.setItem("myPosts", JSON.stringify(posts)), []
   );
+  
   return (
     <div className="App">
       <Header title="React JS Blog" />
@@ -46,7 +57,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Main posts = {posts} />}></Route>
         <Route path="/about" element={<About />}></Route>
-        <Route path="/post/:id" element={<PostPage posts={posts} />}></Route>
+        <Route path="/post/:id" element={<PostPage posts={posts} handleDelete={handleDelete} />}></Route>
+        <Route path="/NewPost" element={<NewPost />}></Route>
         
 
       </Routes>   

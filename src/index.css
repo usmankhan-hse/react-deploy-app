@@ -55,6 +55,25 @@ code {
 .Footer {
     background-color: rgb(75, 150, 236);
 }
-main {
+.main {
     flex-grow: 1;
+}
+#deleteBtn {
+    font: inherit;
+    background-color: red;
+    padding: 5px;
+    border: none;
+    color: whitesmoke;
+}
+.nav-links, .links {
+    text-decoration: none;
+}
+.nav-links:visited {
+    color: whitesmoke;
+}
+.links:visited {
+    color: black;
+}
+.nav-links:hover, .links:hover {
+    color: red;
 }
