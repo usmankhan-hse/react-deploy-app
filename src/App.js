@@ -6,6 +6,7 @@ import About from "./About";
 import Footer from "./Footer";
 import PostPage from "./PostPage";
 import NewPost from "./NewPost";
+import Missing from "./Missing";
 
 import { useState, useEffect } from "react";
 import { Routes, Route} from "react-router-dom";
@@ -59,6 +60,7 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/post/:id" element={<PostPage posts={posts} handleDelete={handleDelete} />}></Route>
         <Route path="/NewPost" element={<NewPost />}></Route>
+        <Route path="*" element={<Missing />}></Route>
         
 
       </Routes>   
