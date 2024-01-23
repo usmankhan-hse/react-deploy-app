@@ -57,6 +57,7 @@ code {
 }
 .main {
     flex-grow: 1;
+    margin: 0 10px 10px 10px;
 }
 #deleteBtn {
     font: inherit;
@@ -76,4 +77,24 @@ code {
 }
 .nav-links:hover, .links:hover {
     color: red;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    
+}
+form * {
+    font: inherit;
+    
+}
+input[type = "text"], textarea, button[type="submit"] {
+    font: inherit;
+    padding: 5px;
+    border-radius: 5px;
+}
+.submit {
+    margin: 5px 0 0 0;
+}
+textarea {
+    min-height: 50px;
 }
