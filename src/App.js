@@ -7,6 +7,8 @@ import Footer from "./Footer";
 import PostPage from "./PostPage";
 import NewPost from "./NewPost";
 import Missing from "./Missing";
+import {format} from 'date-fns';
+import { NewPostConfirm } from "./NewPostConfirm";
 
 import { useState, useEffect } from "react";
 import { Routes, Route} from "react-router-dom";
@@ -46,6 +48,17 @@ function App() {
     setPosts(postDelete);
     
   };
+  const [newPostTitle, setNewPostTitle] = useState("");
+  const[newPostBody, setNewPostBody] = useState("");
+  const newId = posts.length + 1;
+  const newTitle = newPostTitle;
+  const newBody = newPostBody;
+  const handleAdd = (newPostTitle, newPostBody) =>{
+    const newPost = {id: newId, title: newTitle, datetime: format(new Date(), 'MMMM dd, yyyy pp'), body: newBody };
+    const newPosts =   [...posts, newPost];
+    setPosts(newPosts);
+    
+  }
 
   useEffect(()=>
     localStorage.setItem("myPosts", JSON.stringify(posts)), []
@@ -59,7 +72,8 @@ function App() {
         <Route path="/" element={<Main posts = {posts} />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/post/:id" element={<PostPage posts={posts} handleDelete={handleDelete} />}></Route>
-        <Route path="/NewPost" element={<NewPost />}></Route>
+        <Route path="/NewPost" element={<NewPost handleAdd = {handleAdd} setNewPostTitle={setNewPostTitle} setNewPostBody={setNewPostBody} />}></Route>
+        <Route path="/NewPostConfirm" element = {<NewPostConfirm />}></Route>
         <Route path="*" element={<Missing />}></Route>
         
 
