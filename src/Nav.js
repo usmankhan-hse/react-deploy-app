@@ -8,10 +8,8 @@ export const Nav = () => {
         type="text"
         className="searchBox"
         autoFocus
-        placeholder="Find Post"
-        
+        placeholder="Find Post"        
       />
-
       <div>
         <ul className="listItems">
           <li className="items"><Link to="/" className="nav-links">Home</Link>    </li>

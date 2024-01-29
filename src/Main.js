@@ -6,11 +6,10 @@ export const Main = ({ posts }) => {
     <div className="main">
       {posts.map((post) => (
         <>
-        <Link to={`/post/${post.id}`} className="links">
-              {post.title}
           <h2>
-            
-            
+            <Link to={`/post/${post.id}`} className="links">
+              {post.title}
+            </Link>
           </h2>
           <p>{post.datetime}</p>
           <p className="postBody">
@@ -20,7 +19,6 @@ export const Main = ({ posts }) => {
           </p>
 
           <hr />
-          </Link>
         </>
       ))}
     </div>
