@@ -9,6 +9,7 @@ export const Nav = () => {
         className="searchBox"
         autoFocus
         placeholder="Find Post"
+        
       />
 
       <div>

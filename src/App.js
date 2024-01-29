@@ -60,6 +60,7 @@ function App() {
     
   }
 
+
   useEffect(()=>
     localStorage.setItem("myPosts", JSON.stringify(posts)), []
   );
